@@ -18,9 +18,6 @@ const direction_t RIGHT    = 2;
 const direction_t FORWARD  = 3;
 const direction_t BACKWARD = 4;
 
-// And define the default speed for our motors
-#define SPEED 150
-
 void setup() {
   // Tell our board we want to write to the built-in LED
   pinMode(LED_BUILTIN, OUTPUT);
@@ -64,16 +61,16 @@ void loop() {
     digitalWrite(LED_BUILTIN, HIGH);
     switch (dir) {
       case FORWARD:
-        forward(SPEED);
+        forward();
         break;
       case BACKWARD:
-        backward(SPEED);
+        backward();
         break;
       case LEFT:
-        left(SPEED);
+        left();
         break;
       case RIGHT:
-        right(SPEED);
+        right();
         break;
     }
   } else {

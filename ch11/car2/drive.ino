@@ -1,35 +1,35 @@
 
 void allstop() {
-  analogWrite(AIN1, 0);
-  analogWrite(AIN2, 0);
-  analogWrite(BIN1, 0);
-  analogWrite(BIN2, 0);
+  digitalWrite(AIN1, LOW);
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, LOW);
+  digitalWrite(BIN2, LOW);
 }
 
-void forward(int speed) {
-  analogWrite(AIN1, 0);
-  analogWrite(AIN2, speed);
-  analogWrite(BIN1, speed);
-  analogWrite(BIN2, 0);
+void forward() {
+  digitalWrite(AIN1, LOW);
+  digitalWrite(AIN2, HIGH);
+  digitalWrite(BIN1, HIGH);
+  digitalWrite(BIN2, LOW);
 }
 
-void backward(int speed) {
-  analogWrite(AIN1, speed);
-  analogWrite(AIN2, 0);
-  analogWrite(BIN1, 0);
-  analogWrite(BIN2, speed);
+void backward() {
+  digitalWrite(AIN1, HIGH);
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, LOW);
+  digitalWrite(BIN2, HIGH);
 }
 
-void left(int speed) {
-  analogWrite(AIN1, speed);
-  analogWrite(AIN2, 0);
-  analogWrite(BIN1, 0);
-  analogWrite(BIN2, 0);
+void left() {
+  digitalWrite(AIN1, LOW);
+  digitalWrite(AIN2, HIGH);
+  digitalWrite(BIN1, LOW);
+  digitalWrite(BIN2, LOW);
 }
 
-void right(int speed) {
-  analogWrite(AIN1, 0);
-  analogWrite(AIN2, 0);
-  analogWrite(BIN1, 0);
-  analogWrite(BIN2, speed);
+void right() {
+  digitalWrite(AIN1, LOW);
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, HIGH);
+  digitalWrite(BIN2, LOW);
 }

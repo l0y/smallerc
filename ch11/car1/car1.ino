@@ -27,9 +27,6 @@ const direction_t RIGHT    = 2;
 const direction_t FORWARD  = 3;
 const direction_t BACKWARD = 4;
 
-// And define the default speed for our motors
-#define SPEED 150
-
 void setup() {
   // Tell our board we want to write to the built-in LED
   pinMode(LED_BUILTIN, OUTPUT);
@@ -51,38 +48,38 @@ void setup() {
 }
 
 void allstop() {
-  analogWrite(AIN1, 0);
-  analogWrite(AIN2, 0);
-  analogWrite(BIN1, 0);
-  analogWrite(BIN2, 0);
+  analogWrite(AIN1, LOW);
+  analogWrite(AIN2, LOW);
+  analogWrite(BIN1, LOW);
+  analogWrite(BIN2, LOW);
 }
 
-void forward(int speed) {
-  analogWrite(AIN1, 0);
-  analogWrite(AIN2, speed);
-  analogWrite(BIN1, speed);
-  analogWrite(BIN2, 0);
+void forward() {
+  analogWrite(AIN1, LOW);
+  analogWrite(AIN2, HIGH);
+  analogWrite(BIN1, HIGH);
+  analogWrite(BIN2, LOW);
 }
 
-void backward(int speed) {
-  analogWrite(AIN1, speed);
-  analogWrite(AIN2, 0);
-  analogWrite(BIN1, 0);
-  analogWrite(BIN2, speed);
+void backward() {
+  analogWrite(AIN1, HIGH);
+  analogWrite(AIN2, LOW);
+  analogWrite(BIN1, LOW);
+  analogWrite(BIN2, HIGH);
 }
 
-void left(int speed) {
-  analogWrite(AIN1, speed);
-  analogWrite(AIN2, 0);
-  analogWrite(BIN1, 0);
-  analogWrite(BIN2, 0);
+void left() {
+  analogWrite(AIN1, HIGH);
+  analogWrite(AIN2, LOW);
+  analogWrite(BIN1, LOW);
+  analogWrite(BIN2, LOW);
 }
 
-void right(int speed) {
-  analogWrite(AIN1, 0);
-  analogWrite(AIN2, 0);
-  analogWrite(BIN1, 0);
-  analogWrite(BIN2, speed);
+void right() {
+  analogWrite(AIN1, LOW);
+  analogWrite(AIN2, LOW);
+  analogWrite(BIN1, LOW);
+  analogWrite(BIN2, HIGH);
 }
 
 direction_t readDirection() {
@@ -108,16 +105,16 @@ void loop() {
     digitalWrite(LED_BUILTIN, HIGH);
     switch (dir) {
       case FORWARD:
-        forward(SPEED);
+        forward();
         break;
       case BACKWARD:
-        backward(SPEED);
+        backward();
         break;
       case LEFT:
-        left(SPEED);
+        left();
         break;
       case RIGHT:
-        right(SPEED);
+        right();
         break;
     }
   } else {
