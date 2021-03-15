@@ -33,9 +33,9 @@ void loop() {
   uint8_t ms = (millis() & 0x0fff) >> 4;
   uint8_t breath = breaths[ms];
   for (byte p = 0; p < LED_COUNT; p++) {
-    byte red   = colors[p][0] * breath / 255;
-    byte green = colors[p][1] * breath / 255;
-    byte blue  = colors[p][2] * breath / 255;
+    byte red   = (colors[p][0] * breath) >> 8;
+    byte green = (colors[p][1] * breath) >> 8;
+    byte blue  = (colors[p][2] * breath) >> 8;
     stick.setPixelColor(p, red, green, blue);
   }
   stick.show();

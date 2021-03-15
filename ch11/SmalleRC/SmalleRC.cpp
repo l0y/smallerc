@@ -33,8 +33,8 @@ char rc_start() {
 }
 
 void rc_send(int d) {
-  char packet[1] = { d };
-  rf69.send((uint8_t *)packet, 1);
+  uint8_t packet[1] = { d };
+  rf69.send(packet, 1);
   rf69.waitPacketSent();
 }
 

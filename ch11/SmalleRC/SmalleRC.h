@@ -17,9 +17,9 @@
 #define rc_FREQ_FAILED  -2
 
 // Define our direction type
-typedef char direction_t;
+typedef signed char direction_t;
 
-// Define our direction constants
+// Define our directions
 const direction_t rc_STOP     = 0;
 const direction_t rc_LEFT     = 1;
 const direction_t rc_RIGHT    = 2;

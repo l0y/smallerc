@@ -5,6 +5,7 @@
 
 // Grab credentials from config.h and setup our feed
 #include "config.h"
+AdafruitIO_WiFi io(IO_USERNAME, IO_KEY, WIFI_SSID, WIFI_PASS);
 AdafruitIO_Feed *smallerc = io.feed("smallerc");
 
 // Setup our OLED
